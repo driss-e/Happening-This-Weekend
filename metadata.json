@@ -1,0 +1,5 @@
+{
+  "name": "LocalVibe",
+  "description": "An application to discover local activities, outings, and events in your city. Find concerts, workshops, food festivals, and more, all tailored to your interests.",
+  "requestFramePermissions": []
+}

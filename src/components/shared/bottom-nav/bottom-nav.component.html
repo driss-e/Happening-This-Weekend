@@ -1,0 +1,10 @@
+<nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:max-w-sm md:mx-auto md:rounded-b-lg">
+  <div class="flex justify-around h-16">
+    @for(item of navItems; track item.id) {
+      <button (click)="onNavigate(item.id)" class="flex flex-col items-center justify-center w-full text-sm font-medium transition-colors" [class]="(activePage() === item.id || (activePage() === 'dashboard' && item.id === 'profile')) ? 'text-blue-600' : 'text-gray-500 hover:text-blue-600'">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" [innerHTML]="item.icon"></svg>
+        <span>{{ item.label }}</span>
+      </button>
+    }
+  </div>
+</nav>

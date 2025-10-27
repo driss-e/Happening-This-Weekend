@@ -1,0 +1,25 @@
+<div class="h-screen w-screen bg-white md:max-w-sm md:mx-auto md:shadow-lg md:rounded-lg overflow-hidden">
+  <main class="h-full overflow-y-auto no-scrollbar pb-16">
+    @switch (currentPage()) {
+      @case ('login') {
+        <login-page (loginSuccess)="handleLoginSuccess()"></login-page>
+      }
+      @case ('home') {
+        <home-page (viewDetails)="viewActivityDetails($event)"></home-page>
+      }
+      @case ('activityDetail') {
+        <activity-detail-page [activity]="selectedActivity()" (goBack)="goBack()"></activity-detail-page>
+      }
+      @case ('reviews') {
+        <reviews-page (goBack)="goBack()"></reviews-page>
+      }
+      @case ('dashboard') {
+        <dashboard-page></dashboard-page>
+      }
+    }
+  </main>
+
+  @if (isLoggedIn()) {
+    <bottom-nav [activePage]="currentPage()" (navigate)="handleNavigation($event)"></bottom-nav>
+  }
+</div>
